@@ -42,7 +42,8 @@ function adicionarJogada(event)
 			atualizaEstadoTabuleiro(condicao, event.target.idX, event.target.idY, jogador)
 			event.target = display.newText("X", event.target.x, event.target.y, native.systemFontBold, 80)
 			if espelho:verificarJogo(jogador) then
-				display.newText("GANHADOR X", largura / 2,40, native.systemFontBold)		
+				display.newText("GANHADOR X", largura / 2,40, native.systemFontBold)
+				view:resetaTabuleiro()		
 			end
 			jogador = 2
 		end	
@@ -61,9 +62,16 @@ end
 
 function atualizaEstadoTabuleiro(argCondicao, argPosicaoX, argPosicaoY, jogador)
 	espelho:inserirJogadaNoTabuleiro(argCondicao, argPosicaoX, argPosicaoY, jogador)
-	print(espelho:mostrarTabuleiro(	))
 end
  
+function view:resetaTabuleiro()
+	for i=1,#view do
+		for j=1,#view[i] do
+			view[i][j]:removeEventListener("touch", adicionarJogada)
+		end
+	end
+end
+
 function view:verificarJogo()
 	
 end
