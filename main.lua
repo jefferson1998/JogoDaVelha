@@ -7,7 +7,7 @@
 -- Your code here
 
 
-local view = require ("view")
+local view = require ("view.view")
 view:preencherView()
 
 --function view:inserirJogadaNoTabuleiro(tabuleiro, jogador, posicaoX, posicaoY)
