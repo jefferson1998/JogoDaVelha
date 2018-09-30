@@ -53,7 +53,8 @@ function adicionarJogada(event)
 			atualizaEstadoTabuleiro(condicao, event.target.idX, event.target.idY, jogador)
 			event.target = display.newText("O", event.target.x, event.target.y, native.systemFontBold, 80)
 			if espelho:verificarJogo(jogador) then
-				display.newText("GANHADOR O", largura / 2,40, native.systemFontBold)		
+				display.newText("GANHADOR O", largura / 2,40, native.systemFontBold)	
+				view:resetaTabuleiro()	
 			end
 			jogador = 1
 		end	
